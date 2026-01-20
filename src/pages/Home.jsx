@@ -3,6 +3,16 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Shield, BookOpen, Heart } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+
+
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 export default function Home() {
   return (
@@ -61,6 +71,7 @@ export default function Home() {
           size="large"
           href="#safety"
           sx={{ px: 5, fontWeight: 600, borderRadius: 6, fontFamily: 'Poppins, Arial, sans-serif', animation: 'fadeInUp 1.6s', fontSize: '1rem', boxShadow: 3 }}
+          onClick={(e) => { e.preventDefault(); scrollToSection('safety'); }}
         >
           Explore Safety Tips
         </Button>
@@ -70,6 +81,7 @@ export default function Home() {
           size="large"
           href="#resources"
           sx={{ px: 5, fontWeight: 600, borderRadius: 6, fontFamily: 'Poppins, Arial, sans-serif', animation: 'fadeInUp 1.8s', fontSize: '1rem', color: '#fff', borderColor: '#fff', '&:hover': { borderColor: '#fff', backgroundColor: 'rgba(255,255,255,0.1)' } }}
+          onClick={(e) => { e.preventDefault(); scrollToSection('resources'); }}
         >
           Explore Resources
         </Button>
