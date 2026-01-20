@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +10,10 @@
 }
 
 body {
-  @apply bg-green-800 text-gray-100 antialiased;
+  @apply text-gray-900 antialiased;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa 0%, #fffbe6 100%);
+  min-height: 100vh;
 }
 
 .app-container {
@@ -19,11 +24,40 @@ body {
   @apply flex-1 container mx-auto px-6 py-10;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 .logo {
   height: 3rem;
 }
 
 .nav-link {
-  @apply text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md;
+  @apply px-4 py-2 rounded-lg transition-colors duration-200 font-bold text-base;
+  font-family: 'Poppins', Arial, sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+.poppins-link {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+.nav-link-lg {
+  @apply text-lg md:text-xl px-5 py-2;
+}
+.nav-link-green {
+  @apply text-green-800 hover:text-green-600;
 }
 
