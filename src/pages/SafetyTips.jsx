@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, MapPin, Cloud, Backpack, Phone } from 'lucide-react';
 
 const tips = [
   'Plan your route and check the weather before you go.',
@@ -15,6 +15,29 @@ const tips = [
   'Know your limits and turn back if needed.',
   'Stay on marked trails and respect wildlife.',
   'Pack out all trash and leave no trace.'
+];
+
+const beforeTrailTips = [
+  {
+    icon: MapPin,
+    title: 'Plan Your Route and Inform Others',
+    description: 'Research the trail, check difficulty levels, and be aware of weather conditions. Always inform a trusted person about your route and expected return time.'
+  },
+  {
+    icon: Backpack,
+    title: 'Check Your Gear and Devices',
+    description: 'Ensure your essential gear is complete and in good condition. Fully charge safety devices and bring backup power if possible.'
+  },
+  {
+    icon: Cloud,
+    title: 'Prepare for Emergencies',
+    description: 'Pack first-aid supplies, enough food and water, and emergency tools. Be ready for unexpected situations such as injuries or sudden weather changes.'
+  },
+  {
+    icon: Phone,
+    title: 'Assess Your Physical Readiness',
+    description: 'Know your limits and avoid trails beyond your skill level. Proper rest and hydration before hiking reduce the risk of accidents and fatigue.'
+  }
 ];
 
 export default function SafetyTips() {
@@ -52,6 +75,89 @@ export default function SafetyTips() {
       >
         Essential guidelines to ensure a safe and enjoyable hiking experience
       </Typography>
+    </Box>
+
+    {/* Before You Hit the Trail Section */}
+    <Box sx={{ 
+      py: { xs: 6, md: 8 }, 
+      px: { xs: 4, md: 10 }, 
+      width: '100vw',
+      marginLeft: 'calc(-50vw + 50%)',
+      fontFamily: 'Poppins, Arial, sans-serif',
+      backgroundColor: '#fff'
+    }}>
+      <Typography 
+        variant="h3" 
+        sx={{ 
+          fontWeight: 700, 
+          mb: 6, 
+          color: '#1e4620', 
+          textAlign: 'center',
+          fontSize: { xs: '2rem', md: '2.5rem' }
+        }}
+      >
+        Before You Hit the Trail
+      </Typography>
+      
+      <Box sx={{ 
+        display: 'grid', 
+        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, 
+        gap: 4,
+        px: { xs: 2, md: 4 }
+      }}>
+        {beforeTrailTips.map((tip, index) => {
+          const Icon = tip.icon;
+          return (
+            <Box 
+              key={index}
+              sx={{ 
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '2rem',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.12)'
+                }
+              }}
+            >
+              <Box sx={{ 
+                backgroundColor: '#d1fae5',
+                borderRadius: '50%',
+                padding: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 'fit-content',
+                mb: 2
+              }}>
+                <Icon size={32} className="text-green-700" />
+              </Box>
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  fontWeight: 600, 
+                  color: '#1e4620',
+                  fontSize: '1.25rem',
+                  mb: 2
+                }}
+              >
+                {tip.title}
+              </Typography>
+              <Typography 
+                sx={{ 
+                  color: '#4b5563',
+                  fontSize: '1rem',
+                  lineHeight: 1.7
+                }}
+              >
+                {tip.description}
+              </Typography>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
 
     <Box id="safety" className="flex flex-col items-center justify-center text-center fade-in-up" sx={{ py: 12, fontFamily: 'Poppins, Arial, sans-serif', background: 'none' }}>
