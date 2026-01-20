@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
@@ -11,38 +10,41 @@ import Resources from './pages/Resources'
 import Contact from './pages/Contact'
 import './index.css'
 
+
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app-container">
-        <AppBar position="static" color="default" elevation={1}>
-          <Toolbar className="container mx-auto" sx={{}}>
-            <Typography variant="h6" component={Link} sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit'}}>
-              HIKESAFE
-            </Typography>
-            <nav>
-              <Button component={Link} to="/" color="inherit">Home</Button>
-              <Button component={Link} to="/about" color="inherit">About</Button>
-              <Button component={Link} to="/safety" color="inherit">Safety Tips</Button>
-              <Button component={Link} to="/resources" color="inherit">Resources</Button>
-              <Button component={Link} to="/contact" color="inherit">Contact</Button>
-            </nav>
-          </Toolbar>
-        </AppBar>
+    <div className="app-container">
+      <AppBar position="static" color="default" elevation={1}>
+        <Toolbar className="container mx-auto">
+          <Typography variant="h6" sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={() => scrollToSection('home')}>
+            HIKESAFE
+          </Typography>
+          <nav>
+            <Button color="inherit" className="nav-link" onClick={() => scrollToSection('home')}>Home</Button>
+            <Button color="inherit" className="nav-link" onClick={() => scrollToSection('about')}>About</Button>
+            <Button color="inherit" className="nav-link" onClick={() => scrollToSection('safety')}>Safety Tips</Button>
+            <Button color="inherit" className="nav-link" onClick={() => scrollToSection('resources')}>Resources</Button>
+            <Button color="inherit" className="nav-link" onClick={() => scrollToSection('contact')}>Contact</Button>
+          </nav>
+        </Toolbar>
+      </AppBar>
 
-        <Container className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/safety" element={<SafetyTips />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Container>
-
-      </div>
-    </BrowserRouter>
-  )
+      <Container className="content">
+        <section id="home" className="py-20 scroll-mt-24"><Home /></section>
+        <section id="about" className="py-20 scroll-mt-24"><About /></section>
+        <section id="safety" className="py-20 scroll-mt-24"><SafetyTips /></section>
+        <section id="resources" className="py-20 scroll-mt-24"><Resources /></section>
+        <section id="contact" className="py-20 scroll-mt-24"><Contact /></section>
+      </Container>
+    </div>
+  );
 }
 
 export default App
