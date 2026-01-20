@@ -76,11 +76,10 @@ export default function Contact() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Left Side - Contact Information */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
+    <div className="grid md:grid-cols-2 gap-12 px-8 py-16">
+        {/* Left Side - Contact Information */}
+        <div className="pl-8">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
             
             {/* Email */}
             <div className="flex items-start mb-6">
@@ -106,7 +105,7 @@ export default function Contact() {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white rounded-xl shadow-lg p-8 mr-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
 
             {status.success && (
@@ -196,7 +195,6 @@ export default function Contact() {
               </button>
             </form>
           </div>
-        </div>
       </div>
     </div>
   );
