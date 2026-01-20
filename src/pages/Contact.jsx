@@ -105,10 +105,15 @@ export default function Contact() {
       </Typography>
     </Box>
 
-    <div style={{ backgroundColor: '#f5f3ed', margin: 0, padding: 0, width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-      {/* Main Content */}
-<<<<<<< HEAD
-      <div className="max-w-7xl mx-auto px-6 py-8">
+    <Box sx={{ 
+      py: { xs: 6, md: 8 }, 
+      px: { xs: 4, md: 10 }, 
+      width: '100vw',
+      marginLeft: 'calc(-50vw + 50%)',
+      backgroundColor: '#f5f3ed',
+      fontFamily: 'Poppins, Arial, sans-serif' 
+    }}>
+      <div className="max-w-7xl mx-auto">
         <div style={{ 
           backgroundColor: '#f9fafb', 
           padding: '2rem', 
@@ -130,17 +135,6 @@ export default function Contact() {
                   <h3 className="font-semibold text-gray-800 text-lg mb-1">Email</h3>
                   <p className="text-gray-600">info@hikesafe.com</p>
                 </div>
-=======
-    <div className="grid md:grid-cols-2 gap-12 px-8 py-16">
-        {/* Left Side - Contact Information */}
-        <div className="pl-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
-            
-            {/* Email */}
-            <div className="flex items-start mb-6">
-              <div className="bg-green-100 p-3 rounded-lg mr-4">
-                <MailIcon className="w-6 h-6 text-green-700" />
->>>>>>> 27367007de9021ba6e07ebdade92fa02f83770d9
               </div>
 
               {/* Phone */}
@@ -155,27 +149,9 @@ export default function Contact() {
               </div>
             </div>
 
-<<<<<<< HEAD
             {/* Right Side - Contact Form */}
             <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-8">Send Us a Message</h2>
-=======
-            {/* Phone */}
-            <div className="flex items-start mb-6">
-              <div className="bg-green-100 p-3 rounded-lg mr-4">
-                <Phone className="w-6 h-6 text-green-700" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 text-lg mb-1">Phone</h3>
-                <p className="text-gray-600">(555) 123-4567</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8 mr-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
->>>>>>> 27367007de9021ba6e07ebdade92fa02f83770d9
 
             {status.success && (
               <div className="mb-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
@@ -265,8 +241,9 @@ export default function Contact() {
             </form>
             </div>
           </div>
+        </div>
       </div>
-    </div>
+    </Box>
     </>
   );
 }
