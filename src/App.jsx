@@ -60,8 +60,8 @@ function App() {
       </AppBar>
 
       <section id="home"><Home /></section>
-      <Container className="content">
-        <section id="about" className="py-20 scroll-mt-24 animate-fade-in-up"><About /></section>
+      <Container className="content" sx={{ padding: 0 }}>
+        <section id="about"><About /></section>
         <section id="safety" className="py-20 scroll-mt-24 animate-fade-in-up"><SafetyTips /></section>
         <section id="resources" className="py-20 scroll-mt-24 animate-fade-in-up"><Resources /></section>
         <section id="contact" className="py-20 scroll-mt-24 animate-fade-in-up"><Contact /></section>

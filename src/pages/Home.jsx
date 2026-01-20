@@ -77,7 +77,7 @@ export default function Home() {
       </Box>
     </Box>
 
-    <Box sx={{ py: { xs: 8, md: 12 }, px: { xs: 2, md: 8 }, backgroundColor: '#f0fdf4' }}>
+    <Box sx={{ py: { xs: 8, md: 12 }, px: { xs: 2, md: 8 }, backgroundColor: '#f0fdf4', mb: 0, pb: 0 }}>
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Typography
           variant="h3"
