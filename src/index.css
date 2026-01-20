@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #1f7a3a;
+  --accent: #2b9fff;
+}
+
+body {
+  @apply bg-green-800 text-gray-100 antialiased;
+}
+
+.app-container {
+  @apply min-h-screen flex flex-col;
+}
+
+.content {
+  @apply flex-1 container mx-auto px-6 py-10;
+}
+
+.logo {
+  height: 3rem;
+}
+
+.nav-link {
+  @apply text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md;
+}
+
