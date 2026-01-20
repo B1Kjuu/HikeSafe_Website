@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Mail as MailIcon, Phone, Send } from 'lucide-react'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
@@ -68,46 +70,82 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f5f3ed', margin: 0, padding: 0 }}>
-      {/* Green Header Section */}
-      <div className="text-white py-20 text-center" style={{ background: 'linear-gradient(135deg, #1e4620 0%, #2d5a27 50%, #3a7a42 100%)', width: '100%', margin: 0 }}>
-        <h1 className="text-5xl font-bold mb-4">Get In Touch</h1>
-        <p className="text-xl text-green-50">Have questions? We're here to help you on your hiking journey</p>
-      </div>
+    <>
+    <Box 
+      className="flex flex-col items-center justify-center text-center" 
+      sx={{ 
+        py: { xs: 12, md: 16 }, 
+        px: 4,
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)',
+        background: 'linear-gradient(135deg, #1e4620 0%, #2d5a27 50%, #3a7a42 100%)',
+        fontFamily: 'Poppins, Arial, sans-serif' 
+      }}
+    >
+      <Typography 
+        variant="h2" 
+        sx={{ 
+          fontWeight: 700, 
+          mb: 2, 
+          color: '#fff', 
+          fontSize: { xs: '2.5rem', md: '3rem' }
+        }}
+      >
+        Get In Touch
+      </Typography>
+      <Typography 
+        variant="h6" 
+        sx={{ 
+          color: '#e0e0e0', 
+          fontSize: '1.1rem',
+          fontWeight: 400
+        }}
+      >
+        Have questions? We're here to help you on your hiking journey
+      </Typography>
+    </Box>
 
+    <div style={{ backgroundColor: '#f5f3ed', margin: 0, padding: 0, width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Left Side - Contact Information */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
-            
-            {/* Email */}
-            <div className="flex items-start mb-6">
-              <div className="bg-green-100 p-3 rounded-lg mr-4">
-                <MailIcon className="w-6 h-6 text-green-700" />
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div style={{ 
+          backgroundColor: '#f9fafb', 
+          padding: '2rem', 
+          borderRadius: '1rem', 
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)', 
+          border: '2px solid #e5e7eb' 
+        }}>
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Side - Contact Information */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
+              
+              {/* Email */}
+              <div className="flex items-start mb-6">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <MailIcon className="w-6 h-6 text-green-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 text-lg mb-1">Email</h3>
+                  <p className="text-gray-600">info@hikesafe.com</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 text-lg mb-1">Email</h3>
-                <p className="text-gray-600">info@hikesafe.com</p>
+
+              {/* Phone */}
+              <div className="flex items-start mb-6">
+                <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <Phone className="w-6 h-6 text-green-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 text-lg mb-1">Phone</h3>
+                  <p className="text-gray-600">(555) 123-4567</p>
+                </div>
               </div>
             </div>
 
-            {/* Phone */}
-            <div className="flex items-start mb-6">
-              <div className="bg-green-100 p-3 rounded-lg mr-4">
-                <Phone className="w-6 h-6 text-green-700" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 text-lg mb-1">Phone</h3>
-                <p className="text-gray-600">(555) 123-4567</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+            {/* Right Side - Contact Form */}
+            <div className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">Send Us a Message</h2>
 
             {status.success && (
               <div className="mb-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
@@ -195,9 +233,11 @@ export default function Contact() {
                 {status.loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 }
