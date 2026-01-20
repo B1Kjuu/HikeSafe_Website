@@ -1,14 +1,8 @@
 import { useState } from 'react'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import InputAdornment from '@mui/material/InputAdornment'
-import Alert from '@mui/material/Alert'
-import { User, Mail, MessageCircle } from 'lucide-react'
+import { Mail as MailIcon, Phone, Send } from 'lucide-react'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState({ loading: false, success: false, error: '' })
 
   const handleChange = (e) => {
@@ -31,6 +25,7 @@ export default function Contact() {
           template_params: {
             from_name: formData.name,
             reply_to: formData.email,
+            subject: formData.subject,
             message: formData.message,
           },
         }),
@@ -53,6 +48,7 @@ export default function Contact() {
           template_params: {
             from_name: formData.name,
             reply_to: formData.email,
+            subject: formData.subject,
             message: formData.message,
           },
         }),
@@ -61,11 +57,10 @@ export default function Contact() {
       if (!response2.ok) {
         const error2 = await response2.text()
         console.error('Auto-reply failed:', error2)
-        // Continue anyway - main email was sent
       }
 
       setStatus({ loading: false, success: true, error: '' })
-      setFormData({ name: '', email: '', message: '' })
+      setFormData({ name: '', email: '', subject: '', message: '' })
     } catch (error) {
       console.error('Submit error:', error)
       setStatus({ loading: false, success: false, error: 'Failed to send message. Please try again.' })
@@ -73,91 +68,136 @@ export default function Contact() {
   }
 
   return (
-    <Box className="flex flex-col items-center justify-center text-center fade-in-up" sx={{ py: 12, fontFamily: 'Poppins, Arial, sans-serif', background: 'none' }}>
-      <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, color: 'var(--brand)', letterSpacing: '-1px' }}>
-        Contact
-      </Typography>
-      <Typography variant="body1" sx={{ mb: 4, color: '#374151', fontSize: '1.15rem' }}>
-        Have questions or want to reach out? Fill out the form below and we’ll get back to you soon!
-      </Typography>
+    <div className="min-h-screen" style={{ backgroundColor: '#f5f3ed', margin: 0, padding: 0 }}>
+      {/* Green Header Section */}
+      <div className="text-white py-20 text-center" style={{ background: 'linear-gradient(135deg, #1e4620 0%, #2d5a27 50%, #3a7a42 100%)', width: '100%', margin: 0 }}>
+        <h1 className="text-5xl font-bold mb-4">Get In Touch</h1>
+        <p className="text-xl text-green-50">Have questions? We're here to help you on your hiking journey</p>
+      </div>
 
-      {status.success && (
-        <Alert severity="success" sx={{ mb: 2, maxWidth: 400, mx: 'auto' }}>
-          Message sent successfully! We'll get back to you soon.
-        </Alert>
-      )}
-      {status.error && (
-        <Alert severity="error" sx={{ mb: 2, maxWidth: 400, mx: 'auto' }}>
-          {status.error}
-        </Alert>
-      )}
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Left Side - Contact Information */}
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
+            
+            {/* Email */}
+            <div className="flex items-start mb-6">
+              <div className="bg-green-100 p-3 rounded-lg mr-4">
+                <MailIcon className="w-6 h-6 text-green-700" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 text-lg mb-1">Email</h3>
+                <p className="text-gray-600">info@hikesafe.com</p>
+              </div>
+            </div>
 
-      <Box component="form" onSubmit={handleSubmit} className="animate-fade-in-up" sx={{ width: '100%', maxWidth: 400, mx: 'auto', display: 'flex', flexDirection: 'column', gap: 2, animationDelay: '0.2s', animationFillMode: 'both' }}>
-        <TextField
-          fullWidth
-          label="Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <User size={20} className="text-green-700" />
-              </InputAdornment>
-            ),
-          }}
-          sx={{ background: 'white', borderRadius: 2, boxShadow: 1, transition: 'box-shadow 0.2s', '&:focus-within': { boxShadow: 4, borderColor: 'var(--brand)' }, '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'var(--brand)' } }}
-        />
-        <TextField
-          fullWidth
-          label="Email"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Mail size={20} className="text-green-700" />
-              </InputAdornment>
-            ),
-          }}
-          sx={{ background: 'white', borderRadius: 2, boxShadow: 1, transition: 'box-shadow 0.2s', '&:focus-within': { boxShadow: 4, borderColor: 'var(--brand)' }, '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'var(--brand)' } }}
-        />
-        <TextField
-          fullWidth
-          label="Message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          multiline
-          rows={4}
-          variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <MessageCircle size={20} className="text-green-700" />
-              </InputAdornment>
-            ),
-          }}
-          sx={{ background: 'white', borderRadius: 2, boxShadow: 1, transition: 'box-shadow 0.2s', '&:focus-within': { boxShadow: 4, borderColor: 'var(--brand)' }, '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'var(--brand)' } }}
-        />
-        <Button 
-          type="submit" 
-          variant="contained" 
-          color="success" 
-          size="large" 
-          disabled={status.loading}
-          sx={{ fontWeight: 600, borderRadius: 999, mt: 2, fontFamily: 'Poppins, Arial, sans-serif', fontSize: '1.1rem', boxShadow: 3, transition: 'transform 0.2s', '&:hover': { transform: 'scale(1.07)' } }}
-        >
-          {status.loading ? 'Sending...' : 'Send'}
-        </Button>
-      </Box>
-    </Box>
+            {/* Phone */}
+            <div className="flex items-start mb-6">
+              <div className="bg-green-100 p-3 rounded-lg mr-4">
+                <Phone className="w-6 h-6 text-green-700" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 text-lg mb-1">Phone</h3>
+                <p className="text-gray-600">(555) 123-4567</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Contact Form */}
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+
+            {status.success && (
+              <div className="mb-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
+                Message sent successfully! We'll get back to you soon.
+              </div>
+            )}
+            {status.error && (
+              <div className="mb-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+                {status.error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
+                />
+              </div>
+
+              {/* Subject */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subject <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  placeholder="How can we help?"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows="5"
+                  placeholder="Tell us more about your inquiry..."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={status.loading}
+                className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Send className="w-5 h-5" />
+                {status.loading ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
