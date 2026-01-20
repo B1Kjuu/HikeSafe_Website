@@ -8,6 +8,7 @@ import About from './pages/About'
 import SafetyTips from './pages/SafetyTips'
 import Resources from './pages/Resources'
 import Contact from './pages/Contact'
+import { useEffect, useState } from 'react';
 import './index.css'
 
 
@@ -17,8 +18,6 @@ const scrollToSection = (id) => {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 };
-
-import { useEffect, useState } from 'react';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -62,9 +61,9 @@ function App() {
       <section id="home"><Home /></section>
       <Container className="content" sx={{ padding: 0 }}>
         <section id="about"><About /></section>
-        <section id="safety" className="py-20 scroll-mt-24 animate-fade-in-up"><SafetyTips /></section>
-        <section id="resources" className="py-20 scroll-mt-24 animate-fade-in-up"><Resources /></section>
-        <section id="contact" className="py-20 scroll-mt-24 animate-fade-in-up"><Contact /></section>
+        <section id="safety" ><SafetyTips /></section>
+        <section id="resources" ><Resources /></section>
+        <section id="contact" ><Contact /></section>
       </Container>
     </div>
   );
