@@ -59,8 +59,8 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      <Container className="content pt-28 md:pt-32">
-        <section id="home" className="py-20 scroll-mt-24 animate-fade-in-up"><Home /></section>
+      <section id="home"><Home /></section>
+      <Container className="content">
         <section id="about" className="py-20 scroll-mt-24 animate-fade-in-up"><About /></section>
         <section id="safety" className="py-20 scroll-mt-24 animate-fade-in-up"><SafetyTips /></section>
         <section id="resources" className="py-20 scroll-mt-24 animate-fade-in-up"><Resources /></section>
