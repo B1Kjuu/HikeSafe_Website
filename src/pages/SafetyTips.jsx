@@ -160,6 +160,78 @@ export default function SafetyTips() {
       </Box>
     </Box>
 
+    {/* HIKESAFE Essentials Section */}
+    <Box sx={{ 
+      py: { xs: 6, md: 8 }, 
+      px: { xs: 4, md: 10 }, 
+      width: '100vw',
+      marginLeft: 'calc(-50vw + 50%)',
+      fontFamily: 'Poppins, Arial, sans-serif',
+      backgroundColor: '#f9fafb'
+    }}>
+      <Typography 
+        variant="h3" 
+        sx={{ 
+          fontWeight: 700, 
+          mb: 6, 
+          color: '#1e4620', 
+          textAlign: 'center',
+          fontSize: { xs: '2rem', md: '2.5rem' }
+        }}
+      >
+        HIKESAFE: Essentials Using the Device
+      </Typography>
+      
+      <Box sx={{ 
+        display: 'grid', 
+        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, 
+        gap: 3,
+        px: { xs: 2, md: 4 }
+      }}>
+        {[
+          'Route Planning & Trail Info – Set your route in the HIKESAFE device before hiking.',
+          'Location Tracking – Keep GPS tracking active for navigation and safety.',
+          'Emergency SOS – Use the SOS feature to send distress alerts when needed.',
+          'Offline Navigation – Access saved maps even without mobile signal.',
+          'Battery Management – Monitor device power and enable low-power mode.',
+          'Check-In Alerts – Send scheduled status updates to emergency contacts.',
+          'Health & Condition Alerts – Track basic activity or safety indicators if available.',
+          'Environmental Awareness – Receive alerts for hazardous conditions along the trail.',
+          'Post-Hike Confirmation – Use HIKESAFE to notify contacts when you safely exit the trail.',
+          'Battery Status Monitoring – Check device power levels and manage usage efficiently.'
+        ].map((item, index) => (
+          <Box 
+            key={index}
+            sx={{ 
+              backgroundColor: '#d1fae5',
+              borderRadius: '8px',
+              padding: '1.25rem 1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 2,
+              transition: 'all 0.2s ease',
+              '&:hover': {
+                transform: 'translateY(-2px)',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.08)'
+              }
+            }}
+          >
+            <CheckCircle2 size={24} className="text-green-700" style={{ flexShrink: 0 }} />
+            <Typography 
+              sx={{ 
+                color: '#1e4620',
+                fontSize: '1rem',
+                lineHeight: 1.6,
+                fontWeight: 500
+              }}
+            >
+              {item}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+
     <Box id="safety" className="flex flex-col items-center justify-center text-center fade-in-up" sx={{ py: 12, fontFamily: 'Poppins, Arial, sans-serif', background: 'none' }}>
       <List sx={{ maxWidth: 700, mx: 'auto', background: 'none', borderRadius: 0, boxShadow: 0 }}>
         {tips.map((t, i) => (
