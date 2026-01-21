@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Shield, BookOpen, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import SplitText from '../components/SplitText';
 
 
 
@@ -51,13 +52,12 @@ export default function Home() {
       >
         "Stay connected. Stay safe."
       </Typography>
-      <Typography
-        variant="h2"
-        component="h1"
-        sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '2.7rem', md: '4.5rem' }, color: '#fff', fontFamily: 'Poppins, Arial, sans-serif', animation: 'fadeInUp 1.2s', letterSpacing: '-2px' }}
-      >
-        Hike Smart. Hike Safe.
-      </Typography>
+      <SplitText
+        text="Hike Smart. Hike Safe."
+        tag="h1"
+        className="text-center font-extrabold tracking-tight mb-2 text-[2.7rem] md:text-[4.5rem]"
+        style={{ color: '#fff', fontFamily: 'Poppins, Arial, sans-serif', letterSpacing: '-2px' }}
+      />
       <Typography
         variant="body1"
         sx={{ color: '#e5e7eb', maxWidth: 700, mb: 5, fontSize: { xs: '1.15rem', md: '1.35rem' }, fontFamily: 'Poppins, Arial, sans-serif', animation: 'fadeInUp 1.4s' }}
@@ -91,12 +91,14 @@ export default function Home() {
 
     <Box sx={{ py: { xs: 8, md: 12 }, px: { xs: 2, md: 8 }, backgroundColor: '#f0fdf4', mb: 0, pb: 0 }}>
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
-        <Typography
-          variant="h3"
-          sx={{ textAlign: 'center', fontWeight: 800, mb: 8, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif', fontSize: { xs: '2rem', md: '2.5rem' } }}
-        >
-          Why Choose HikeSafe?
-        </Typography>
+        <SplitText
+          text="Why Choose HikeSafe?"
+          tag="h3"
+          className="text-center font-extrabold mb-8 text-[2rem] md:text-[2.5rem]"
+          split="words"
+          delay={0.06}
+          style={{ color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}
+        />
 
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr' }, gap: 4 }}>
           {/* Card 1 - Safety First */}
