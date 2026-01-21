@@ -74,7 +74,7 @@ export default function SafetyTips() {
       width: '100vw',
       marginLeft: 'calc(-50vw + 50%)',
       fontFamily: 'Poppins, Arial, sans-serif',
-      backgroundColor: '#fff'
+      backgroundColor: '#e8f9f0'
     }}>
       <Typography 
         variant="h3" 
