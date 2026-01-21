@@ -13,7 +13,7 @@ const resources = [
     icon: BookOpen,
     title: 'Trail Guides',
     description: 'Comprehensive guides for popular hiking trails across the country.',
-    link: '#'
+    link: 'http://www.pinoymountaineer.com/'
   },
   {
     icon: Compass,
@@ -89,7 +89,7 @@ export default function Resources() {
       width: '100vw',
       marginLeft: 'calc(-50vw + 50%)',
       fontFamily: 'Poppins, Arial, sans-serif',
-      backgroundColor: '#fff'
+      backgroundColor: '#e8f9f0'
     }}>
       <Typography 
         variant="h3" 
@@ -193,7 +193,7 @@ export default function Resources() {
       width: '100vw',
       marginLeft: 'calc(-50vw + 50%)',
       fontFamily: 'Poppins, Arial, sans-serif',
-      backgroundColor: '#f9fafb',
+      backgroundColor: '#e8f9f0',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center'
