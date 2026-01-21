@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Shield, BookOpen, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import homeBg from '../assets/home-bg.jpg';
 
 
 
@@ -25,7 +26,7 @@ export default function Home() {
         marginLeft: 'calc(-50vw + 50%)',
         px: { xs: 2, md: 8 },
         fontFamily: 'Poppins, Arial, sans-serif',
-        backgroundImage: 'url(https://i.pinimg.com/1200x/5c/6e/3d/5c6e3d68cc9e2b04628b7df9ebf19039.jpg)',
+        backgroundImage: `url(${homeBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
