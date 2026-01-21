@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Mail as MailIcon, Phone, Send } from 'lucide-react'
 import Typography from '@mui/material/Typography'
+import BlurText from '../components/BlurText'
 import Box from '@mui/material/Box'
+// animations: using simple `fade-in-up` class here to avoid double anim (GSAP + CSS)
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
@@ -85,13 +87,13 @@ export default function Contact() {
       <Typography 
         variant="h2" 
         sx={{ 
-          fontWeight: 700, 
+            fontWeight: 700,
           mb: 2, 
           color: '#fff', 
           fontSize: { xs: '2.5rem', md: '3rem' }
         }}
       >
-        Get In Touch
+            <span className="fade-in-up" style={{ display: 'inline-block' }}>Get In Touch</span>
       </Typography>
       <Typography 
         variant="h6" 
@@ -101,7 +103,7 @@ export default function Contact() {
           fontWeight: 400
         }}
       >
-        Have questions? We're here to help you on your hiking journey
+        <span className="fade-in-up">Have questions? We're here to help you on your hiking journey</span>
       </Typography>
     </Box>
 
@@ -114,7 +116,7 @@ export default function Contact() {
       fontFamily: 'Poppins, Arial, sans-serif' 
     }}>
       <div className="max-w-7xl mx-auto">
-        <div style={{ 
+          <div style={{ 
           backgroundColor: '#f9fafb', 
           padding: '2rem', 
           borderRadius: '1rem', 
@@ -123,8 +125,9 @@ export default function Contact() {
         }}>
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Side - Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
+            <div className="fade-in-up">
+              <h2 className="text-3xl font-bold text-gray-800 mb-8"><span className="fade-in-up">Contact Information</span></h2>
+                <h2 className="text-3xl font-bold text-gray-800 mb-8 fade-in-up">Contact Information</h2>
               
               {/* Email */}
               <div className="flex items-start mb-6">
@@ -150,8 +153,8 @@ export default function Contact() {
             </div>
 
             {/* Right Side - Contact Form */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8">Send Us a Message</h2>
+            <div className="bg-white rounded-xl shadow-lg p-8 fade-in-up">
+            <h2 className="text-3xl font-bold text-gray-800 mb-8 fade-in-up">Send Us a Message</h2>
 
             {status.success && (
               <div className="mb-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">

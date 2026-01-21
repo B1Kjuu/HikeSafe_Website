@@ -76,10 +76,7 @@ export default function About() {
             sx={{ 
               fontWeight: 900, 
               mb: 4, 
-              background: 'linear-gradient(135deg, #1f7a3a 0%, #2d8f4a 50%, #47b35d 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: '#1f7a3a',
               letterSpacing: '-2px',
               fontSize: { xs: '3rem', md: '4rem' }
             }}

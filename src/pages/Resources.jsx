@@ -7,6 +7,8 @@ import SplitText from '../components/SplitText';
 import BlurText from '../components/BlurText';
 import TextType from '../components/TextType';
 import ScrollReveal from '../components/ScrollReveal';
+import ClickSpark from '../components/ClickSpark';
+import qrImage from '../assets/qr-code.jpg';
 
 const resources = [
   {
@@ -360,53 +362,41 @@ export default function Resources() {
           </Box>
         </Box>
 
-        {/* Right Side - Phone Illustration */}
-        <Box sx={{ 
-          display: 'flex', 
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
-          <Box sx={{
-            backgroundColor: '#d1fae5',
-            borderRadius: '24px',
-            padding: '3rem',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: { xs: '250px', md: '320px' },
-            height: { xs: '250px', md: '320px' }
-          }}>
-            <Box sx={{
-              backgroundColor: '#2d5a27',
-              borderRadius: '32px',
-              width: '70%',
-              height: '85%',
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '1.5rem'
-            }}>
-              <Box sx={{
-                backgroundColor: '#d1fae5',
-                borderRadius: '24px',
-                width: '100%',
-                height: '100%',
-                position: 'relative'
-              }}>
-                <Box sx={{
-                  position: 'absolute',
-                  bottom: '20%',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '20px',
-                  height: '20px',
-                  backgroundColor: '#2d5a27',
-                  borderRadius: '50%'
-                }} />
-              </Box>
+        {/* Right Side - QR Image (enlarged with border + animated label) */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <ClickSpark sparkColor="#fff" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+              <Box
+                component="img"
+                src={qrImage}
+                alt="HikeSafe QR code"
+                sx={{
+                  width: { xs: '240px', md: '312px' },
+                  height: 'auto',
+                  objectFit: 'contain',
+                  border: '6px solid #2d5a27',
+                  borderRadius: '12px',
+                  padding: '8px',
+                  backgroundColor: '#fff',
+                  transition: 'transform 200ms, box-shadow 200ms',
+                  '&:hover': {
+                    transform: 'scale(1.08)',
+                    boxShadow: '0 12px 30px rgba(45,90,39,0.16)'
+                  }
+                }}
+              />
+              <Typography
+                sx={{
+                  color: '#1e4620',
+                  fontWeight: 800,
+                  fontSize: { xs: '1.05rem', md: '1.3rem' },
+                  letterSpacing: '0.2px'
+                }}
+              >
+                Scan here
+              </Typography>
             </Box>
-          </Box>
+          </ClickSpark>
         </Box>
       </Box>
     </Box>

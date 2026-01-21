@@ -9,6 +9,7 @@ import SafetyTips from './pages/SafetyTips'
 import Resources from './pages/Resources'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import ClickSpark from './components/ClickSpark';
 import { useEffect, useState } from 'react';
 import './index.css'
 import hikesafeLogo from './assets/hikesafe_logo.png'
@@ -54,7 +55,8 @@ function App() {
   }, []);
 
   return (
-    <div className="app-container">
+    <ClickSpark sparkColor="#fff" sparkSize={8} sparkRadius={18} sparkCount={8} duration={420}>
+      <div className="app-container">
       <AppBar
         position="fixed"
         elevation={0}
@@ -80,12 +82,23 @@ function App() {
               HIKESAFE
             </Typography>
           </div>
-          <nav className="flex gap-2 md:gap-6 ">
-            <Button color="inherit" className="nav-link nav-link-lg nav-link-green nav-link-active poppins-link" onClick={() => scrollToSection('home')}>Home</Button>
-            <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('about')}>About</Button>
-            <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('safety')}>Safety Tips</Button>
-            <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('resources')}>Resources</Button>
-            <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('contact')}>Contact</Button>
+          <nav className="flex gap-2 md:gap-6 items-center">
+            {[
+              { label: 'Home', id: 'home' },
+              { label: 'About', id: 'about' },
+              { label: 'Safety Tips', id: 'safety' },
+              { label: 'Resources', id: 'resources' },
+              { label: 'Contact', id: 'contact' }
+            ].map((it) => (
+              <button
+                key={it.id}
+                className="nav-pill poppins-link"
+                onClick={() => scrollToSection(it.id)}
+                aria-label={it.label}
+              >
+                <span className="nav-text">{it.label}</span>
+              </button>
+            ))}
           </nav>
         </Toolbar>
       </AppBar>
@@ -97,8 +110,9 @@ function App() {
         <section id="resources" ><Resources /></section>
         <section id="contact" ><Contact /></section>
       </Container>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ClickSpark>
   );
 }
 

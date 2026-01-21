@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 const ScrollReveal = ({
   children,
   as = 'div',
+  innerAs = 'div',
   scrollContainerRef,
   enableBlur = true,
   baseOpacity = 0.08,
@@ -93,7 +94,7 @@ const ScrollReveal = ({
     : children
 
   return createElement(as, { ref: containerRef, className: containerClassName },
-    createElement('div', { className: textClassName }, splitChildren)
+    createElement(innerAs, { className: textClassName }, splitChildren)
   )
 }
 

@@ -31,10 +31,12 @@ body {
   from {
     opacity: 0;
     transform: translateY(40px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: none;
+    filter: blur(0px);
   }
 }
 .fade-in-up,
@@ -52,6 +54,29 @@ body {
   opacity: 1;
   transform: none;
   animation: fadeInUp 640ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Contact section visuals */
+.contact-hero {
+  background: linear-gradient(135deg, rgba(31,122,58,0.95) 0%, rgba(45,90,39,0.95) 100%);
+}
+
+.contact-card {
+  border: 1px solid rgba(34,197,94,0.08);
+  box-shadow: 0 10px 30px rgba(17,24,39,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.96));
+  backdrop-filter: blur(6px);
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(17,24,39,0.08);
+}
+
+/* Make BlurText spans display nicely in headings */
+.blur-text > span {
+  display: inline-block;
 }
 
 .logo {
@@ -84,5 +109,31 @@ body {
   color: #2d5a27 !important;
 }
 .nav-link-active {
+}
+
+/* Pill-like hover effect (text slide + circle) without turning into a pill */
+.nav-pill .nav-text {
+  color: #fff;
+  font-weight: 700;
+  line-height: 42px;
+  display: inline-block;
+  transition: color 180ms ease, transform 180ms cubic-bezier(.2,.9,.2,1);
+}
+
+.nav-pill:hover {
+  filter: brightness(1.05);
+}
+
+/* Make hover/focus noticeable: small lift and subtle color change; keep accessible focus */
+.nav-pill:hover .nav-text,
+.nav-pill:focus-visible .nav-text {
+  transform: translateY(-3px);
+  color: #f8fff8;
+}
+
+.nav-pill:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.18);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 
