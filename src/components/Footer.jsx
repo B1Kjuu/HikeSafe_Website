@@ -12,9 +12,9 @@ export default function Footer() {
   return (
     <footer>
       {/* Call to Action Section */}
-      <div className="text-white py-16 px-6 text-center" style={{ backgroundColor: '#1e4620' }}>
-        <h2 className="text-4xl font-bold mb-4">Ready to Start Your Adventure?</h2>
-        <p className="text-lg text-green-50 mb-6">
+      <div className="text-white py-12 px-6 text-center" style={{ backgroundColor: '#1e4620' }}>
+        <h2 className="text-5xl font-bold mb-4">Ready to Start Your Adventure?</h2>
+        <p className="text-xl text-green-50 mb-6">
           Get equipped with the knowledge and tools you need for a safe hiking experience.
         </p>
         <button 
@@ -26,46 +26,46 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="text-white py-12 px-6" style={{ backgroundColor: '#1e4620' }}>
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+      <div className="text-white py-8 px-6" style={{ backgroundColor: '#1e4620' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 items-start justify-items-center text-center md:text-left">
           {/* Brand Section */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={hikesafeLogo} 
                 alt="HikeSafe Logo" 
-                className="h-10 w-10"
+                className="h-12 w-12"
               />
-              <span className="text-2xl font-bold" style={{ fontFamily: 'Poppins, Arial, sans-serif', fontWeight: 900, letterSpacing: '-2px' }}>
+              <span className="text-3xl font-bold" style={{ fontFamily: 'Poppins, Arial, sans-serif', fontWeight: 900, letterSpacing: '-2px' }}>
                 HIKESAFE
               </span>
             </div>
-            <p className="text-green-100 text-sm">
+            <p className="text-green-100 text-base max-w-xs">
               Your trusted companion for safe and memorable hiking adventures.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-3">
               <li>
-                <button onClick={() => scrollToSection('home')} className="text-green-100 hover:text-white transition text-left">
+                <button onClick={() => scrollToSection('home')} className="text-green-100 hover:text-white transition text-left text-base">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('about')} className="text-green-100 hover:text-white transition text-left">
+                <button onClick={() => scrollToSection('about')} className="text-green-100 hover:text-white transition text-left text-base">
                   About
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('safety')} className="text-green-100 hover:text-white transition text-left">
+                <button onClick={() => scrollToSection('safety')} className="text-green-100 hover:text-white transition text-left text-base">
                   Safety Tips
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('resources')} className="text-green-100 hover:text-white transition text-left">
+                <button onClick={() => scrollToSection('resources')} className="text-green-100 hover:text-white transition text-left text-base">
                   Resources
                 </button>
               </li>
@@ -73,9 +73,9 @@ export default function Footer() {
           </div>
 
           {/* Connect With Us */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
-            <div className="flex gap-4">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-2xl font-bold mb-4">Connect With Us</h3>
+            <div className="flex gap-5">
               <a 
                 href="https://facebook.com" 
                 target="_blank" 
@@ -83,7 +83,7 @@ export default function Footer() {
                 className="text-green-100 hover:text-white transition"
                 aria-label="Facebook"
               >
-                <Facebook className="w-6 h-6" />
+                <Facebook className="w-8 h-8" />
               </a>
               <a 
                 href="https://twitter.com" 
@@ -92,7 +92,7 @@ export default function Footer() {
                 className="text-green-100 hover:text-white transition"
                 aria-label="Twitter"
               >
-                <Twitter className="w-6 h-6" />
+                <Twitter className="w-8 h-8" />
               </a>
               <a 
                 href="https://instagram.com" 
@@ -101,15 +101,15 @@ export default function Footer() {
                 className="text-green-100 hover:text-white transition"
                 aria-label="Instagram"
               >
-                <Instagram className="w-6 h-6" />
+                <Instagram className="w-8 h-8" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-green-700 text-center">
-          <p className="text-green-100 text-sm">© 2026 HikeSafe. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-green-700 text-center">
+          <p className="text-green-100 text-base">© 2026 HikeSafe. All rights reserved.</p>
         </div>
       </div>
     </footer>
