@@ -26,8 +26,8 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="text-white py-8 px-6" style={{ backgroundColor: '#1e4620' }}>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 items-start justify-items-center text-center md:text-left">
+      <div className="text-white py-12 px-6" style={{ backgroundColor: '#1e4620' }}>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 justify-items-center">
           {/* Brand Section */}
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-3 mb-4">
