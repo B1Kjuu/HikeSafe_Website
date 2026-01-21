@@ -110,7 +110,7 @@ export default function Contact() {
       px: { xs: 4, md: 10 }, 
       width: '100vw',
       marginLeft: 'calc(-50vw + 50%)',
-      backgroundColor: '#f5f3ed',
+      backgroundColor: '#e8f9f0',
       fontFamily: 'Poppins, Arial, sans-serif' 
     }}>
       <div className="max-w-7xl mx-auto">
