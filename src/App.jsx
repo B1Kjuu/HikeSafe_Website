@@ -10,6 +10,7 @@ import Resources from './pages/Resources'
 import Contact from './pages/Contact'
 import { useEffect, useState } from 'react';
 import './index.css'
+import hikesafeLogo from './assets/hikesafe_logo.png'
 
 
 const scrollToSection = (id) => {
@@ -62,13 +63,22 @@ function App() {
         className="z-50"
       >
         <Toolbar className="container mx-auto px-4 md:px-12 min-h-[80px]">
-          <Typography
-            variant="h4"
-            sx={{ flexGrow: 1, cursor: 'pointer', fontWeight: 900, letterSpacing: '-2px', color: '#fff', fontFamily: 'Poppins, Arial, sans-serif', fontSize: { xs: '2rem', md: '2.5rem' } }}
+          <div 
+            className="flex items-center gap-3 cursor-pointer flex-grow"
             onClick={() => scrollToSection('home')}
           >
-            HIKESAFE
-          </Typography>
+            <img 
+              src={hikesafeLogo} 
+              alt="HikeSafe Logo" 
+              className="h-10 w-10 md:h-12 md:w-12"
+            />
+            <Typography
+              variant="h4"
+              sx={{ fontWeight: 900, letterSpacing: '-2px', color: '#fff', fontFamily: 'Poppins, Arial, sans-serif', fontSize: { xs: '2rem', md: '2.5rem' } }}
+            >
+              HIKESAFE
+            </Typography>
+          </div>
           <nav className="flex gap-2 md:gap-6 ">
             <Button color="inherit" className="nav-link nav-link-lg nav-link-green nav-link-active poppins-link" onClick={() => scrollToSection('home')}>Home</Button>
             <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('about')}>About</Button>
