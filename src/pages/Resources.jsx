@@ -2,7 +2,34 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import { Map, Contact, Backpack } from 'lucide-react';
+import { BookOpen, Compass, Video, FileText } from 'lucide-react';
+
+const resources = [
+  {
+    icon: BookOpen,
+    title: 'Trail Guides',
+    description: 'Comprehensive guides for popular hiking trails across the country.',
+    link: '#'
+  },
+  {
+    icon: Compass,
+    title: 'Navigation Tools',
+    description: 'GPS apps, topographic maps, and navigation essentials.',
+    link: '#'
+  },
+  {
+    icon: Video,
+    title: 'Tutorial Videos',
+    description: 'Learn essential hiking skills through our video library.',
+    link: '#'
+  },
+  {
+    icon: FileText,
+    title: 'Checklists',
+    description: 'Downloadable packing lists and pre-hike preparation checklists.',
+    link: '#'
+  }
+];
 
 export default function Resources() {
   return (
@@ -41,21 +68,105 @@ export default function Resources() {
       </Typography>
     </Box>
 
-    <Box className="flex flex-col items-center justify-center text-center fade-in-up" sx={{ py: 12, fontFamily: 'Poppins, Arial, sans-serif', background: 'none' }}>
-      <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl mx-auto">
-        <li className="bg-white/70 rounded-xl shadow p-6 flex flex-col items-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-          <Map size={40} className="mb-2 text-green-700 group-hover:scale-125 transition-transform duration-200 animate-bounce" />
-          <Link href="#" className="font-extrabold text-green-800 hover:text-green-600 transition-colors duration-200">Local trail maps</Link>
-        </li>
-        <li className="bg-white/70 rounded-xl shadow p-6 flex flex-col items-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-          <Contact size={40} className="mb-2 text-green-700 group-hover:scale-125 transition-transform duration-200 animate-bounce" />
-          <Link href="#" className="font-extrabold text-green-800 hover:text-green-600 transition-colors duration-200">Emergency contact templates</Link>
-        </li>
-        <li className="bg-white/70 rounded-xl shadow p-6 flex flex-col items-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-          <Backpack size={40} className="mb-2 text-green-700 group-hover:scale-125 transition-transform duration-200 animate-bounce" />
-          <Link href="#" className="font-extrabold text-green-800 hover:text-green-600 transition-colors duration-200">Recommended gear lists</Link>
-        </li>
-      </ul>
+    {/* Explore Our Resources Section */}
+    <Box sx={{ 
+      py: { xs: 6, md: 8 }, 
+      px: { xs: 4, md: 10 }, 
+      width: '100vw',
+      marginLeft: 'calc(-50vw + 50%)',
+      fontFamily: 'Poppins, Arial, sans-serif',
+      backgroundColor: '#fff'
+    }}>
+      <Typography 
+        variant="h3" 
+        sx={{ 
+          fontWeight: 700, 
+          mb: 6, 
+          color: '#1e4620', 
+          textAlign: 'center',
+          fontSize: { xs: '2rem', md: '2.5rem' }
+        }}
+      >
+        Explore Our Resources
+      </Typography>
+      
+      <Box sx={{ 
+        display: 'grid', 
+        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }, 
+        gap: 4,
+        px: { xs: 2, md: 4 }
+      }}>
+        {resources.map((resource, index) => {
+          const Icon = resource.icon;
+          return (
+            <Box 
+              key={index}
+              sx={{ 
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '2rem',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.12)'
+                }
+              }}
+            >
+              <Box sx={{ 
+                backgroundColor: '#d1fae5',
+                borderRadius: '50%',
+                padding: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 'fit-content',
+                mb: 2
+              }}>
+                <Icon size={32} className="text-green-700" />
+              </Box>
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  fontWeight: 600, 
+                  color: '#1e4620',
+                  fontSize: '1.25rem',
+                  mb: 2
+                }}
+              >
+                {resource.title}
+              </Typography>
+              <Typography 
+                sx={{ 
+                  color: '#4b5563',
+                  fontSize: '1rem',
+                  lineHeight: 1.7,
+                  mb: 2
+                }}
+              >
+                {resource.description}
+              </Typography>
+              <Link 
+                href={resource.link}
+                sx={{
+                  color: '#2d5a27',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 0.5,
+                  '&:hover': {
+                    textDecoration: 'underline'
+                  }
+                }}
+              >
+                Explore →
+              </Link>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
     </>
   );

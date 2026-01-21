@@ -30,6 +30,27 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // reveal animations on scroll: observe elements with common animation classes
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const selector = '.fade-in-up, .animate-fade-in-up, .scroll-animate';
+    const nodes = Array.from(document.querySelectorAll(selector));
+    if (!nodes.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    nodes.forEach(n => observer.observe(n));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="app-container">
       <AppBar
@@ -48,7 +69,7 @@ function App() {
           >
             HIKESAFE
           </Typography>
-          <nav className="flex gap-2 md:gap-6">
+          <nav className="flex gap-2 md:gap-6 ">
             <Button color="inherit" className="nav-link nav-link-lg nav-link-green nav-link-active poppins-link" onClick={() => scrollToSection('home')}>Home</Button>
             <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('about')}>About</Button>
             <Button color="inherit" className="nav-link nav-link-lg nav-link-green poppins-link" onClick={() => scrollToSection('safety')}>Safety Tips</Button>
