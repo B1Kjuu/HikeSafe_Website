@@ -1,4 +1,5 @@
-import { Mountain, ArrowRight, Facebook, Twitter, Instagram } from 'lucide-react'
+import { ArrowRight, Facebook, Twitter, Instagram } from 'lucide-react'
+import hikesafeLogo from '../assets/hikesafe_logo.png'
 
 export default function Footer() {
   const scrollToSection = (id) => {
@@ -29,9 +30,15 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
           {/* Brand Section */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Mountain className="w-8 h-8" />
-              <span className="text-2xl font-bold">HikeSafe</span>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={hikesafeLogo} 
+                alt="HikeSafe Logo" 
+                className="h-10 w-10"
+              />
+              <span className="text-2xl font-bold" style={{ fontFamily: 'Poppins, Arial, sans-serif', fontWeight: 900, letterSpacing: '-2px' }}>
+                HIKESAFE
+              </span>
             </div>
             <p className="text-green-100 text-sm">
               Your trusted companion for safe and memorable hiking adventures.
