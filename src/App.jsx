@@ -8,6 +8,7 @@ import About from './pages/About'
 import SafetyTips from './pages/SafetyTips'
 import Resources from './pages/Resources'
 import Contact from './pages/Contact'
+import Footer from './components/Footer'
 import { useEffect, useState } from 'react';
 import './index.css'
 import hikesafeLogo from './assets/hikesafe_logo.png'
@@ -96,6 +97,7 @@ function App() {
         <section id="resources" ><Resources /></section>
         <section id="contact" ><Contact /></section>
       </Container>
+      <Footer />
     </div>
   );
 }
