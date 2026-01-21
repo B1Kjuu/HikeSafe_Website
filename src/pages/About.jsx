@@ -1,6 +1,10 @@
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import { Medal, Target, Users } from 'lucide-react'
+import SplitText from '../components/SplitText'
+import BlurText from '../components/BlurText'
+import TextType from '../components/TextType'
+import ScrollReveal from '../components/ScrollReveal'
 
 export default function About() {
   return (
@@ -18,6 +22,7 @@ export default function About() {
     >
       <Typography 
         variant="h2" 
+        component="div"
         sx={{ 
           fontWeight: 700, 
           mb: 2, 
@@ -25,17 +30,26 @@ export default function About() {
           fontSize: { xs: '2.5rem', md: '3rem' }
         }}
       >
-        About HikeSafe
+        <ScrollReveal>
+          <SplitText text="About HikeSafe" tag="h2" className="text-center" style={{ color: '#fff' }} />
+        </ScrollReveal>
       </Typography>
       <Typography 
         variant="h6" 
         sx={{ 
           color: '#e0e0e0', 
-          fontSize: '1.1rem',
+          fontSize: '1.05rem',
           fontWeight: 400
         }}
       >
-        Empowering hikers with knowledge, safety, and community since 2025
+        <TextType
+          text={["Empowering hikers with knowledge, safety, and community since 2025"]}
+          typingSpeed={60}
+          pauseDuration={1600}
+          loop={false}
+          className="text-base"
+          showCursor={false}
+        />
       </Typography>
     </Box>
 
@@ -58,6 +72,7 @@ export default function About() {
         <Box>
           <Typography 
             variant="h2" 
+            component="div"
             sx={{ 
               fontWeight: 900, 
               mb: 4, 
@@ -69,7 +84,9 @@ export default function About() {
               fontSize: { xs: '3rem', md: '4rem' }
             }}
           >
-            Our Story
+            <ScrollReveal>
+              <SplitText text="Our Story" tag="h2" className="inline-block" />
+            </ScrollReveal>
           </Typography>
           
           <Typography 
@@ -152,6 +169,7 @@ export default function About() {
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Typography
           variant="h3"
+          component="div"
           sx={{
             textAlign: 'center',
             fontWeight: 800,
@@ -161,7 +179,9 @@ export default function About() {
             fontSize: { xs: '2rem', md: '2.5rem' }
           }}
         >
-          Our Values
+          <ScrollReveal>
+            <SplitText text="Our Values" tag="h3" className="inline-block" />
+          </ScrollReveal>
         </Typography>
 
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr' }, gap: 4 }}>

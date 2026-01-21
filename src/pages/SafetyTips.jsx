@@ -2,6 +2,9 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { CheckCircle2, MapPin, Cloud, Backpack, Phone } from 'lucide-react';
+import SplitText from '../components/SplitText';
+import BlurText from '../components/BlurText';
+import ScrollReveal from '../components/ScrollReveal';
 
 const beforeTrailTips = [
   {
@@ -42,6 +45,7 @@ export default function SafetyTips() {
     >
       <Typography 
         variant="h2" 
+        component="div"
         sx={{ 
           fontWeight: 700, 
           mb: 2, 
@@ -49,7 +53,7 @@ export default function SafetyTips() {
           fontSize: { xs: '2.5rem', md: '3rem' }
         }}
       >
-        Hiking Safety Tips
+        <SplitText text="Hiking Safety Tips" tag="h2" className="text-center" style={{ color: '#fff' }} />
       </Typography>
       <Typography 
         variant="h6" 
@@ -74,6 +78,7 @@ export default function SafetyTips() {
     }}>
       <Typography 
         variant="h3" 
+        component="div"
         sx={{ 
           fontWeight: 700, 
           mb: 6, 
@@ -82,7 +87,9 @@ export default function SafetyTips() {
           fontSize: { xs: '2rem', md: '2.5rem' }
         }}
       >
-        Before You Hit the Trail
+        <ScrollReveal>
+          <SplitText text="Before You Hit the Trail" tag="h3" className="inline-block" />
+        </ScrollReveal>
       </Typography>
       
       <Box sx={{ 
@@ -165,7 +172,9 @@ export default function SafetyTips() {
           fontSize: { xs: '2rem', md: '2.5rem' }
         }}
       >
-        HIKESAFE: Essentials Using the Device
+        <ScrollReveal>
+          <SplitText text="HIKESAFE: Essentials Using the Device" tag="h3" className="inline-block" />
+        </ScrollReveal>
       </Typography>
       
       <Box sx={{ 

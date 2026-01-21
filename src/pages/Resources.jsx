@@ -3,6 +3,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { BookOpen, Compass, Video, FileText } from 'lucide-react';
+import SplitText from '../components/SplitText';
+import BlurText from '../components/BlurText';
+import TextType from '../components/TextType';
+import ScrollReveal from '../components/ScrollReveal';
 
 const resources = [
   {
@@ -47,6 +51,7 @@ export default function Resources() {
     >
       <Typography 
         variant="h2" 
+        component="div"
         sx={{ 
           fontWeight: 700, 
           mb: 2, 
@@ -54,17 +59,26 @@ export default function Resources() {
           fontSize: { xs: '2.5rem', md: '3rem' }
         }}
       >
-        Hiking Resources
+        <ScrollReveal>
+          <SplitText text="Hiking Resources" tag="h2" className="text-center" style={{ color: '#fff' }} />
+        </ScrollReveal>
       </Typography>
       <Typography 
         variant="h6" 
         sx={{ 
           color: '#e0e0e0', 
-          fontSize: '1.1rem',
+          fontSize: '1.05rem',
           fontWeight: 400
         }}
       >
-        Everything you need for a successful hiking adventure
+        <TextType
+          text={["Everything you need for a successful hiking adventure"]}
+          typingSpeed={55}
+          pauseDuration={1400}
+          loop={false}
+          className="text-base"
+          showCursor={false}
+        />
       </Typography>
     </Box>
 
@@ -79,6 +93,7 @@ export default function Resources() {
     }}>
       <Typography 
         variant="h3" 
+        component="div"
         sx={{ 
           fontWeight: 700, 
           mb: 6, 
@@ -87,7 +102,9 @@ export default function Resources() {
           fontSize: { xs: '2rem', md: '2.5rem' }
         }}
       >
-        Explore Our Resources
+        <ScrollReveal>
+          <SplitText text="Explore Our Resources" tag="h3" className="inline-block" />
+        </ScrollReveal>
       </Typography>
       
       <Box sx={{ 

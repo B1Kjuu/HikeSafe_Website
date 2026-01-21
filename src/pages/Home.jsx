@@ -5,6 +5,9 @@ import Button from '@mui/material/Button';
 import { Shield, BookOpen, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import SplitText from '../components/SplitText';
+import BlurText from '../components/BlurText';
+import TextType from '../components/TextType';
+import ScrollReveal from '../components/ScrollReveal';
 import homeBg from '../assets/home-bg.jpg';
 
 
@@ -17,6 +20,9 @@ const scrollToSection = (id) => {
 };
 
 export default function Home() {
+  const handleBlurComplete = () => {
+    console.log('Animation completed!')
+  }
   return (
     <>
     <Box
@@ -53,17 +59,30 @@ export default function Home() {
       >
         "Stay connected. Stay safe."
       </Typography>
-      <SplitText
-        text="Hike Smart. Hike Safe."
-        tag="h1"
-        className="text-center font-extrabold tracking-tight mb-2 text-[2.7rem] md:text-[4.5rem]"
-        style={{ color: '#fff', fontFamily: 'Poppins, Arial, sans-serif', letterSpacing: '-2px' }}
-      />
-      <Typography
-        variant="body1"
-        sx={{ color: '#e5e7eb', maxWidth: 700, mb: 5, fontSize: { xs: '1.15rem', md: '1.35rem' }, fontFamily: 'Poppins, Arial, sans-serif', animation: 'fadeInUp 1.4s' }}
-      >
-        Discover essential hiking safety tips, emergency readiness, and survival basics. Your journey to safer adventures starts here.
+      <ScrollReveal containerClassName="w-full" textClassName="w-full">
+        <SplitText
+          text="Hike Smart. Hike Safe."
+          tag="h1"
+          className="text-center font-extrabold tracking-tight mb-2 text-[2.7rem] md:text-[4.5rem]"
+          style={{ color: '#fff', fontFamily: 'Poppins, Arial, sans-serif', letterSpacing: '-2px' }}
+        />
+      </ScrollReveal>
+      <Typography sx={{ maxWidth: 700, mb: 5, fontSize: { xs: '1.05rem', md: '1.18rem' }, fontFamily: 'Poppins, Arial, sans-serif' }}>
+        <TextType
+          text={[
+            'Discover essential hiking safety tips, emergency readiness, and survival basics.',
+            'Preparedness, awareness, and practical advice for every trail.',
+            'Your journey to safer adventures starts here.'
+          ]}
+          typingSpeed={50}
+          pauseDuration={1200}
+          deletingSpeed={40}
+          loop={true}
+          className="text-lg md:text-xl text-gray-200"
+          showCursor={true}
+          cursorCharacter="_"
+          cursorBlinkDuration={0.6}
+        />
       </Typography>
       <Box className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" sx={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
         <Button
@@ -120,7 +139,7 @@ export default function Home() {
                 <Shield size={32} color="#1f7a3a" />
               </Box>
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}>
+            <Typography variant="h6" component="div" sx={{ fontWeight: 700, mb: 2, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}>
               Safety First
             </Typography>
             <Typography variant="body2" sx={{ color: '#4b5563', lineHeight: 1.6, fontFamily: 'Poppins, Arial, sans-serif' }}>
@@ -146,7 +165,7 @@ export default function Home() {
                 <BookOpen size={32} color="#1f7a3a" />
               </Box>
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}>
+            <Typography variant="h6" component="div" sx={{ fontWeight: 700, mb: 2, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}>
               Expert Resources
             </Typography>
             <Typography variant="body2" sx={{ color: '#4b5563', lineHeight: 1.6, fontFamily: 'Poppins, Arial, sans-serif' }}>
@@ -172,7 +191,7 @@ export default function Home() {
                 <Heart size={32} color="#1f7a3a" />
               </Box>
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}>
+            <Typography variant="h6" component="div" sx={{ fontWeight: 700, mb: 2, color: '#1f7a3a', fontFamily: 'Poppins, Arial, sans-serif' }}>
               Community Support
             </Typography>
             <Typography variant="body2" sx={{ color: '#4b5563', lineHeight: 1.6, fontFamily: 'Poppins, Arial, sans-serif' }}>
